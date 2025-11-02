@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qüestionari Educatiu Millorat</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --font-size-base: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --line-height: 1.5;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: var(--font-size-base);
+            line-height: var(--line-height);
+            color: var(--dark-color);
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: var(--font-size-xl);
+        }
+        
+        .question-info {
+            background-color: var(--light-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .question-text {
+            font-size: var(--font-size-lg);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        /* Estils per a preguntes d'opció múltiple */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: white;
+        }
+        
+        .option:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f7ff;
+        }
+        
+        .option.selected {
+            border-color: var(--primary-color);
+            background-color: #e6f2ff;
+        }
+        
+        .option input {
+            margin-right: 12px;
+            margin-top: 3px;
+            transform: scale(1.2);
+        }
+        
+        .option-label {
+            font-weight: 500;
+        }
+        
+        /* Estils per a preguntes vertader/fals */
+        .true-false-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .true-false-option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            background-color: white;
+        }
+        
+        .true-false-option:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f7ff;
+        }
+        
+        .true-false-option.selected.true {
+            border-color: var(--success-color);
+            background-color: #e8f5e8;
+        }
+        
+        .true-false-option.selected.false {
+            border-color: var(--danger-color);
+            background-color: #fde8e8;
+        }
+        
+        /* Estils per a preguntes de desenvolupament */
+        .development-question {
+            margin-bottom: 25px;
+        }
+        
+        .development-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: var(--font-size-base);
+            line-height: var(--line-height);
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+        
+        .development-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        /* Botons */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .next-btn {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .next-btn:hover {
+            background-color: #218838;
+        }
+        
+        /* Sistema de qualificació */
+        .grading-system {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .grade-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .grade-levels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .grade-level {
+            text-align: center;
+            flex: 1;
+            padding: 5px;
+            font-weight: 500;
+        }
+        
+        .grade-level.insufficient {
+            color: var(--danger-color);
+        }
+        
+        .grade-level.sufficient {
+            color: #fd7e14;
+        }
+        
+        .grade-level.good {
+            color: var(--warning-color);
+        }
+        
+        .grade-level.notable {
+            color: #20c997;
+        }
+        
+        .grade-level.excellent {
+            color: var(--success-color);
+        }
+        
+        /* Feedback */
+        .feedback-container {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .feedback-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .feedback-content {
+            line-height: 1.6;
+        }
+        
+        .grade-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .grade-indicator.insufficient {
+            background-color: #f8d7da;
+            color: var(--danger-color);
+        }
+        
+        .grade-indicator.sufficient {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .grade-indicator.good {
+            background-color: #e2f0fb;
+            color: #0c5460;
+        }
+        
+        .grade-indicator.notable {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .grade-indicator.excellent {
+            background-color: #d4edda;
+            color: var(--success-color);
+        }
+        
+        /* Millores d'accessibilitat */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .high-contrast {
+            color: #000;
+            background-color: #fff;
+        }
+        
+        /* Responsivitat */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .true-false-container {
+                flex-direction: column;
+            }
+            
+            .grade-levels {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Questionari unificat: SA1.1 a SA1.4</h1>
+        
+        <div class="question-info">SA1.1 - 1/20</div>
+        
+        <div class="question-text">
+            Quin dels següents factors va ser una causa política de la crisi de l'Imperi Romà d'Occident?
+        </div>
+        
+        <div class="options-container">
+            <div class="option">
+                <input type="radio" id="option1" name="question" value="1">
+                <label for="option1" class="option-label">La pèrdua de terres cultivables per l'erosió.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option2" name="question" value="2">
+                <label for="option2" class="option-label">La inestabilitat i les guerres civils per la successió imperial.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option3" name="question" value="3">
+                <label for="option3" class="option-label">La importació massiva de seda de la Xina.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option4" name="question" value="4">
+                <label for="option4" class="option-label">L'aparició de noves tecnologies militars.</label>
+            </div>
+        </div>
+        
+        <div class="grading-system">
+            <div class="grade-title">Sistema de qualificació per a respostes de desenvolupament:</div>
+            <div class="grade-levels">
+                <div class="grade-level insufficient">Insuficient</div>
+                <div class="grade-level sufficient">Suficient</div>
+                <div class="grade-level good">Bé</div>
+                <div class="grade-level notable">Notable</div>
+                <div class="grade-level excellent">Excel·lent</div>
+            </div>
+            <div>
+                Les respostes s'avaluen segons la precisió, completitud, coherència i profunditat de l'anàlisi.
+            </div>
+        </div>
+        
+        <div class="feedback-container">
+            <div class="feedback-title">Feedback de la resposta:</div>
+            <div class="grade-indicator good">Qualificació: Bé</div>
+            <div class="feedback-content">
+                La teva resposta identifica correctament la inestabilitat política com a causa de la crisi de l'Imperi Romà d'Occident. Has mencionat les guerres civils per la successió imperial, que és un factor clau. Tanmateix, podries aprofundir més en com aquesta inestabilitat afectava l'administració de l'imperi i la seva capacitat per respondre a les amenaces externes. Intenta connectar millor les causes polítiques amb les conseqüències econòmiques i militars per a una resposta més completa.
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button class="submit-btn">Envia la resposta</button>
+            <button class="next-btn">Següent pregunta</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript per a la interacció amb les opcions
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.option');
+            const trueFalseOptions = document.querySelectorAll('.true-false-option');
+            
+            // Per a opcions múltiples
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    const radioInput = this.querySelector('input[type="radio"]');
+                    radioInput.checked = true;
+                    
+                    // Actualitzar estils
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Per a opcions vertader/fals
+            trueFalseOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const isTrue = this.classList.contains('true');
+                    
+                    // Actualitzar estils
+                    trueFalseOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    this.classList.add('selected');
+                    
+                    // Actualitzar classes per a colors
+                    if (isTrue) {
+                        this.classList.add('true');
+                    } else {
+                        this.classList.add('false');
+                    }
+                });
+            });
+            
+            // Exemple de com es podria processar una resposta de desenvolupament
+            const developmentTextarea = document.querySelector('.development-textarea');
+            if (developmentTextarea) {
+                developmentTextarea.addEventListener('blur', function() {
+                    // Aquí aniria la lògica per avaluar la resposta
+                    // Aquest seria un exemple simplificat
+                    const answer = this.value.toLowerCase();
+                    let grade = 'insufficient';
+                    
+                    if (answer.includes('inestabilitat') && answer.includes('guerres civils') && 
+                        answer.length > 100) {
+                        grade = 'excellent';
+                    } else if (answer.includes('inestabilitat') && answer.length > 50) {
+                        grade = 'good';
+                    } else if (answer.includes('inestabilitat')) {
+                        grade = 'sufficient';
+                    }
+                    
+                    // Actualitzar el feedback segons la qualificació
+                    updateFeedback(grade, answer);
+                });
+            }
+            
+            function updateFeedback(grade, answer) {
+                const feedbackContainer = document.querySelector('.feedback-container');
+                const gradeIndicator = feedbackContainer.querySelector('.grade-indicator');
+                const feedbackContent = feedbackContainer.querySelector('.feedback-content');
+                
+                // Actualitzar classe de qualificació
+                gradeIndicator.className = 'grade-indicator ' + grade;
+                
+                // Actualitzar text de qualificació
+                const gradeTexts = {
+                    'insufficient': 'Insuficient',
+                    'sufficient': 'Suficient',
+                    'good': 'Bé',
+                    'notable': 'Notable',
+                    'excellent': 'Excel·lent'
+                };
+                
+                gradeIndicator.textContent = 'Qualificació: ' + gradeTexts[grade];
+                
+                // Actualitzar contingut del feedback segons la resposta
+                let feedbackText = '';
+                
+                switch(grade) {
+                    case 'insufficient':
+                        feedbackText = 'La teva resposta no aborda adequadament la pregunta. Has de centrar-te en les causes polítiques de la crisi de l\'Imperi Romà d\'Occident. Intenta mencionar factors com la inestabilitat en la successió imperial o les lluites de poder.';
+                        break;
+                    case 'sufficient':
+                        feedbackText = 'Has identificat algun element rellevant, però la resposta és massa breu o poc desenvolupada. Proporciona més detalls sobre com la inestabilitat política va afectar l\'imperi.';
+                        break;
+                    case 'good':
+                        feedbackText = 'La teva resposta identifica correctament la inestabilitat política com a causa de la crisi. Has mencionat elements clau, però podries aprofundir més en les conseqüències d\'aquesta inestabilitat.';
+                        break;
+                    case 'notable':
+                        feedbackText = 'Excel·lent anàlisi de les causes polítiques. Has relacionat bé la inestabilitat successòria amb la debilitat de l\'imperi. Podries mencionar també el paper de l\'exèrcit en les lluites pel poder.';
+                        break;
+                    case 'excellent':
+                        feedbackText = 'Resposta completa i ben estructurada. Has analitzat en profunditat les causes polítiques de la crisi, relacionant la inestabilitat successòria amb la fragmentació del poder i la incapacitat de respondre a les amenaces externes. Has inclòs exemples rellevants i has demostrat una bona comprensió del tema.';
+                        break;
+                }
+                
+                feedbackContent.textContent = feedbackText;
+            }
+        });
+    </script>
+</body>
+</html>

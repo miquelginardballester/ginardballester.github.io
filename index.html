@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HistoQuiz - Qüestionari Unificat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HistoQuiz - Edat Mitjana</h1>
+            <p>Qüestionari unificat: SA1.1 a SA1.4</p>
+        </header>
+        
+        <!-- Índex de SA -->
+        <div id="sa-index" class="sa-index">
+            <h2>Situacions d'Aprenentatge</h2>
+            <div class="sa-buttons">
+                <button class="sa-btn" data-sa="1">SA1.1 - Crisi de Roma</button>
+                <button class="sa-btn" data-sa="2">SA1.2 - Imperi Bizantí</button>
+                <button class="sa-btn" data-sa="3">SA1.3 - Món Islàmic</button>
+                <button class="sa-btn" data-sa="4">SA1.4 - Carolingis</button>
+                <button class="sa-btn start-all" data-sa="all">Començar Tot el Qüestionari</button>
+            </div>
+        </div>
+
+        <!-- Qüestionari -->
+        <div id="quiz-container" class="hidden">
+            <div id="question-container">
+                <div id="sa-info">
+                    <span id="current-sa">SA1.1</span>
+                    <span id="question-counter">1/20</span>
+                </div>
+                <h2 id="question-text"></h2>
+                <div id="options-container"></div>
+                <div id="open-answer-container" class="hidden">
+                    <textarea id="open-answer" rows="5" placeholder="Escriu la teva resposta aquí..."></textarea>
+                </div>
+                <button id="submit-btn">Envia la resposta</button>
+            </div>
+            
+            <div id="feedback-container" class="hidden">
+                <h3>Feedback</h3>
+                <div id="feedback-text"></div>
+                <button id="next-btn">Següent pregunta</button>
+            </div>
+        </div>
+
+        <!-- Progrés global -->
+        <div id="progress-container">
+            <div id="progress-bar">
+                <div id="progress-bar-inner"></div>
+            </div>
+            <span id="progress-text">Progrés: 0%</span>
+        </div>
+    </div>
+
+    <script src="questions-unificat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

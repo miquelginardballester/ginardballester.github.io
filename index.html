@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qüestionari - Història 2n ESO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Qüestionari - Història 2n ESO</h1>
+            <p>Respon les preguntes i comprova els teus coneixements</p>
+        </header>
+        
+        <!-- SA1: CAIGUDA DE L'IMPERI ROMÀ -->
+        <div class="section">
+            <h2>SA1: CAIGUDA DE L'IMPERI ROMÀ</h2>
+            
+            <!-- P1 - Multiopció -->
+            <div class="question" id="sa1-p1">
+                <h3>P1 - Multiopció</h3>
+                <p>Quin dels següents factors va ser una causa política de la crisi de l'Imperi Romà d'Occident?</p>
+                <div class="options">
+                    <div class="option" data-value="0">La pèrdua de terres cultivables per l'erosió.</div>
+                    <div class="option" data-value="1">La inestabilitat i les guerres civils per la successió imperial.</div>
+                    <div class="option" data-value="2">La importació massiva de seda de la Xina.</div>
+                    <div class="option" data-value="3">L'aparició de noves tecnologies militars.</div>
+                </div>
+                <button class="check-btn" onclick="checkMultipleChoice('sa1-p1', 1)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P2 - Vertader/Fals -->
+            <div class="question" id="sa1-p2">
+                <h3>P2 - Vertader/Fals</h3>
+                <p>La divisió de l'Imperi Romà en Orient i Occident va afeblir considerablement l'Imperi d'Occident.</p>
+                <div class="true-false">
+                    <button class="true-false-btn true-btn" onclick="selectTrueFalse('sa1-p2', true)">Vertader</button>
+                    <button class="true-false-btn false-btn" onclick="selectTrueFalse('sa1-p2', false)">Fals</button>
+                </div>
+                <button class="check-btn" onclick="checkTrueFalse('sa1-p2', true)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P3 - Desenvolupament -->
+            <div class="question" id="sa1-p3">
+                <h3>P3 - Desenvolupament</h3>
+                <p>Explica com les invasions germàniques van contribuir a la caiguda de l'Imperi Romà d'Occident.</p>
+                <textarea placeholder="Escriu la teva resposta aquí..."></textarea>
+                <button class="show-feedback-btn" onclick="showDevelopmentFeedback('sa1-p3')">Mostra feedback</button>
+                <div class="feedback info">
+                    <strong>Feedback esperat:</strong><br>
+                    - Pressió militar constant als límits<br>
+                    - Pèrdua de territoris<br>
+                    - Establiment de regnes germànics<br>
+                    - Debilitat econòmica i política<br><br>
+                    <strong>Comentari:</strong> Les invasions germàniques van pressionar constantment les fronteres de l'Imperi, contribuint a la seva desestabilització.
+                </div>
+            </div>
+            
+            <!-- P4 - Emplenar buits -->
+            <div class="question" id="sa1-p4">
+                <h3>P4 - Emplenar buits</h3>
+                <div class="fill-blanks">
+                    <p>L'Imperi Romà d'Occident es va dividir en dos l'any <span class="blank"><input type="text" id="sa1-p4-0"></span>. Entre les causes de la seva caiguda hi ha les <span class="blank"><input type="text" id="sa1-p4-1"></span> civils, les invasions <span class="blank"><input type="text" id="sa1-p4-2"></span> i la crisi <span class="blank"><input type="text" id="sa1-p4-3"></span>.</p>
+                </div>
+                <button class="check-btn" onclick="checkFillBlanks('sa1-p4', ['476', 'guerres', 'germàniques', 'econòmica'])">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+        
+        <!-- SA2: IMPERI BIZANTÍ -->
+        <div class="section">
+            <h2>SA2: IMPERI BIZANTÍ</h2>
+            
+            <!-- P1 - Multiopció -->
+            <div class="question" id="sa2-p1">
+                <h3>P1 - Multiopció</h3>
+                <p>Quina va ser la capital de l'Imperi Bizantí?</p>
+                <div class="options">
+                    <div class="option" data-value="0">Roma</div>
+                    <div class="option" data-value="1">Atenes</div>
+                    <div class="option" data-value="2">Constantinoble</div>
+                    <div class="option" data-value="3">Alexandria</div>
+                </div>
+                <button class="check-btn" onclick="checkMultipleChoice('sa2-p1', 2)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P2 - Vertader/Fals -->
+            <div class="question" id="sa2-p2">
+                <h3>P2 - Vertader/Fals</h3>
+                <p>L'Imperi Bizantí va mantenir la religió romana com a religió oficial durant tota la seva existència.</p>
+                <div class="true-false">
+                    <button class="true-false-btn true-btn" onclick="selectTrueFalse('sa2-p2', true)">Vertader</button>
+                    <button class="true-false-btn false-btn" onclick="selectTrueFalse('sa2-p2', false)">Fals</button>
+                </div>
+                <button class="check-btn" onclick="checkTrueFalse('sa2-p2', false)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P3 - Desenvolupament -->
+            <div class="question" id="sa2-p3">
+                <h3>P3 - Desenvolupament</h3>
+                <p>Explica la importància de l'Imperi Bizantí com a pont entre l'antiguitat clàssica i l'edat mitjana.</p>
+                <textarea placeholder="Escriu la teva resposta aquí..."></textarea>
+                <button class="show-feedback-btn" onclick="showDevelopmentFeedback('sa2-p3')">Mostra feedback</button>
+                <div class="feedback info">
+                    <strong>Feedback esperat:</strong><br>
+                    - Preservació del saber clàssic<br>
+                    - Transmissió cultural<br>
+                    - Desenvolupament del dret romà<br>
+                    - Defensa d'Europa<br><br>
+                    <strong>Comentari:</strong> L'Imperi Bizantí va ser clau per preservar i transmetre el coneixement de l'antiguitat clàssica a Europa.
+                </div>
+            </div>
+            
+            <!-- P4 - Emplenar buits -->
+            <div class="question" id="sa2-p4">
+                <h3>P4 - Emplenar buits</h3>
+                <div class="fill-blanks">
+                    <p>L'Imperi Bizantí es va originar amb la divisió de l'Imperi Romà l'any <span class="blank"><input type="text" id="sa2-p4-0"></span>. El seu emperador més important va ser <span class="blank"><input type="text" id="sa2-p4-1"></span>, qui va compilar les lleis en el <span class="blank"><input type="text" id="sa2-p4-2"></span>.</p>
+                </div>
+                <button class="check-btn" onclick="checkFillBlanks('sa2-p4', ['476', 'Justinià', 'Codi de Justinià'])">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+        
+        <!-- SA3: IMPERI ISLÀMIC -->
+        <div class="section">
+            <h2>SA3: IMPERI ISLÀMIC</h2>
+            
+            <!-- P1 - Multiopció -->
+            <div class="question" id="sa3-p1">
+                <h3>P1 - Multiopció</h3>
+                <p>On va néixer Mahoma, fundador de l'islam?</p>
+                <div class="options">
+                    <div class="option" data-value="0">Medina</div>
+                    <div class="option" data-value="1">Damasc</div>
+                    <div class="option" data-value="2">La Meca</div>
+                    <div class="option" data-value="3">Bagdad</div>
+                </div>
+                <button class="check-btn" onclick="checkMultipleChoice('sa3-p1', 2)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P2 - Vertader/Fals -->
+            <div class="question" id="sa3-p2">
+                <h3>P2 - Vertader/Fals</h3>
+                <p>L'expansió de l'Imperi Islàmic va ser sobretot militar i no va incloure aspectes culturals o comercials.</p>
+                <div class="true-false">
+                    <button class="true-false-btn true-btn" onclick="selectTrueFalse('sa3-p2', true)">Vertader</button>
+                    <button class="true-false-btn false-btn" onclick="selectTrueFalse('sa3-p2', false)">Fals</button>
+                </div>
+                <button class="check-btn" onclick="checkTrueFalse('sa3-p2', false)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P3 - Desenvolupament -->
+            <div class="question" id="sa3-p3">
+                <h3>P3 - Desenvolupament</h3>
+                <p>Explica els factors que van permetre la ràpida expansió de l'Imperi Islàmic durant els segles VII i VIII i a quins continents es va extendre.</p>
+                <textarea placeholder="Escriu la teva resposta aquí..."></textarea>
+                <button class="show-feedback-btn" onclick="showDevelopmentFeedback('sa3-p3')">Mostra feedback</button>
+                <div class="feedback info">
+                    <strong>Feedback esperat:</strong><br>
+                    - Unificació de tribus àrabs<br>
+                    - Comerç<br>
+                    - Religió<br>
+                    - Poder militar<br>
+                    - Idioma i cultura<br>
+                    - Àfrica, Àsia i Europa<br><br>
+                    <strong>Comentari:</strong> L'expansió islàmica va ser ràpida i efectiva gràcies a la combinació de factors militars, econòmics i culturals.
+                </div>
+            </div>
+            
+            <!-- P4 - Emplenar buits -->
+            <div class="question" id="sa3-p4">
+                <h3>P4 - Emplenar buits</h3>
+                <div class="fill-blanks">
+                    <p>L'any de la Hègira, quan Mahoma va fugir de La Meca a Medina, va ser l'any <span class="blank"><input type="text" id="sa3-p4-0"></span>. Aquest any és considerat l'inici del <span class="blank"><input type="text" id="sa3-p4-1"></span> Musulmà. El profeta Mahoma predicava la paraula del déu <span class="blank"><input type="text" id="sa3-p4-2"></span> i està recollit al llibre anomenat <span class="blank"><input type="text" id="sa3-p4-3"></span>.</p>
+                </div>
+                <button class="check-btn" onclick="checkFillBlanks('sa3-p4', ['622', 'calendari', 'Al·là', 'Alcorà'])">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+        
+        <!-- SA4: IMPERI CAROLINGI -->
+        <div class="section">
+            <h2>SA4: IMPERI CAROLINGI</h2>
+            
+            <!-- P1 - Multiopció -->
+            <div class="question" id="sa4-p1">
+                <h3>P1 - Multiopció</h3>
+                <p>Quin papa va coronar Carlemany com a emperador?</p>
+                <div class="options">
+                    <div class="option" data-value="0">Gregori I</div>
+                    <div class="option" data-value="1">Lleó III</div>
+                    <div class="option" data-value="2">Esteve II</div>
+                    <div class="option" data-value="3">Nicolau I</div>
+                </div>
+                <button class="check-btn" onclick="checkMultipleChoice('sa4-p1', 1)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P2 - Vertader/Fals -->
+            <div class="question" id="sa4-p2">
+                <h3>P2 - Vertader/Fals</h3>
+                <p>L'Imperi Carolingi va durar més de 500 anys després de la mort de Carlemany.</p>
+                <div class="true-false">
+                    <button class="true-false-btn true-btn" onclick="selectTrueFalse('sa4-p2', true)">Vertader</button>
+                    <button class="true-false-btn false-btn" onclick="selectTrueFalse('sa4-p2', false)">Fals</button>
+                </div>
+                <button class="check-btn" onclick="checkTrueFalse('sa4-p2', false)">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+            
+            <!-- P3 - Desenvolupament -->
+            <div class="question" id="sa4-p3">
+                <h3>P3 - Desenvolupament</h3>
+                <p>Explica en què va consistir el 'Renaixement Carolingi' i la seva importància.</p>
+                <textarea placeholder="Escriu la teva resposta aquí..."></textarea>
+                <button class="show-feedback-btn" onclick="showDevelopmentFeedback('sa4-p3')">Mostra feedback</button>
+                <div class="feedback info">
+                    <strong>Feedback esperat:</strong><br>
+                    - Reforma educativa<br>
+                    - Preservació de textos clàssics<br>
+                    - Desenvolupament de l'escriptura<br>
+                    - Arquitectura i art<br>
+                    - Reforma religiosa<br><br>
+                    <strong>Comentari:</strong> El Renaixement Carolingi va ser un període de renovació cultural i intel·lectual que va ajudar a preservar el coneixement clàssic.
+                </div>
+            </div>
+            
+            <!-- P4 - Emplenar buits -->
+            <div class="question" id="sa4-p4">
+                <h3>P4 - Emplenar buits</h3>
+                <div class="fill-blanks">
+                    <p>Carlemany va ser coronat emperador l'any <span class="blank"><input type="text" id="sa4-p4-0"></span>. El seu imperi es va dividir amb el tractat de <span class="blank"><input type="text" id="sa4-p4-1"></span> l'any 843. Els seus tres nets van repartir-se l'imperi: <span class="blank"><input type="text" id="sa4-p4-2"></span> va obtenir la part oriental, <span class="blank"><input type="text" id="sa4-p4-3"></span> la part occidental, i <span class="blank"><input type="text" id="sa4-p4-4"></span> la part central.</p>
+                </div>
+                <button class="check-btn" onclick="checkFillBlanks('sa4-p4', ['800', 'Verdun', 'Lluís el Germànic', 'Carles el Calb', 'Lotari'])">Comprova resposta</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+        
+        <div class="results">
+            <h2>Resultats</h2>
+            <button class="check-btn" onclick="calculateResults()">Calcula la puntuació final</button>
+            <div class="score" id="score"></div>
+            <div class="summary" id="summary"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
